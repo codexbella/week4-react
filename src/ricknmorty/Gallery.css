@@ -1,8 +1,41 @@
 #gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: space-around;
+    gap: 20px 20px;
+}
+#body-site {
     background-color: #C37B89;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-content: space-around;
     gap: 20px 20px;
+}
+.gallery-title {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #D3E4CD;
+    text-align: center;
+    font-variant: small-caps;
+}
+
+.search-field {
+    background-color: #6a746a;
+    border: 12px #6a746a solid;
+    border-radius: 10%;
+    color: #D3E4CD;
+    outline: none;
+
+    background-image: url('search-icon.png');
+    background-position: 10px 50%;
+    background-repeat: no-repeat;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+}
+
+.search-field:focus {
+    border: 5px solid #D3E4CD;
 }

@@ -9,7 +9,7 @@ interface GalleryItemProps {
 function GalleryItem(props: GalleryItemProps) {
     return (
         <div className="gallery-item">
-            <h1>{ props.character.name }</h1>
+            <h1 className="gallery-item-title">{ props.character.name }</h1>
             <div><img src={props.character.imageUrl} className="gallery-item-image" /></div>
             <div>
                 <ul className="gallery-item-description">
