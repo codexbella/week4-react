@@ -1,5 +1,4 @@
 import GalleryItem from "./GalleryItem";
-import data from './Characters.json';
 import './Gallery.css';
 import {useEffect, useState} from "react";
 import {Character} from "./characterModel";
@@ -21,13 +20,21 @@ export default function Gallery() {
     const [characterData, setCharacterData] = useState([] as Array<Character>);
     const [siteInfo, setSiteInfo] = useState({} as Pages);
 
+    const [errorMessage, setErrorMessage] = useState('');
+
     useEffect(() => {
             fetch('https://rickandmortyapi.com/api/character?page=' + page)
-                .then(response => response.json())
+                .then(response => {
+                    if (response.status >= 200 && response.status < 300) {
+                        setErrorMessage('');
+                        return response.json();
+                    }
+                    throw new Error('Fehler mit Fehlercode: '+response.status)
+                })
                 .then(data => {
                     setCharacterData(data.results)
                     setSiteInfo(data.info)
-                }).catch(() => console.log('hm...'))
+                }).catch(e => setErrorMessage(e.message))
         }
         , [page]);
 
@@ -36,11 +43,17 @@ export default function Gallery() {
         <div id='search-field-buttons-wrapper'>
             <input type='text' placeholder='Type in search term' value={searchTerm}
                    onChange={typed => setSearchTerm(typed.target.value)} className='search-field'/>
-            <div className='page-button-wrapper'>
-                {siteInfo.prev && <button onClick={() => setPage(page - 1)} className='page-buttons'>&lt;&lt;</button>}
-                <p className='page-indicator'>page {page}</p>
-                {siteInfo.next && <button onClick={() => setPage(page + 1)} className='page-buttons'>&gt;&gt;</button>}
-            </div>
+            {
+                errorMessage
+                    ?
+                    <div>{errorMessage}</div>
+                    :
+                    <div className='page-button-wrapper'>
+                        {siteInfo.prev && <button onClick={() => setPage(page - 1)} className='page-buttons'>&lt;&lt;</button>}
+                        <p className='page-indicator'>page {page}</p>
+                        {siteInfo.next && <button onClick={() => setPage(page + 1)} className='page-buttons'>&gt;&gt;</button>}
+                    </div>
+            }
         </div>
 
         <div id="gallery">

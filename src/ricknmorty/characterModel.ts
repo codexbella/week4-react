@@ -9,7 +9,3 @@ export interface Character {
 interface Location {
     name: string;
 }
-
-export interface ResponseBody {
-    results: Array<Character>;
-}
