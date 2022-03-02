@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import {useEffect, useState} from "react";
-import GalleryItem from "./GalleryItem";
-import {Character} from "../characterModel";
+import GalleryItem, {GalleryItemDetailed} from "./GalleryItem";
+import {Character} from "./characterModel";
 
 export default function GalleryItemDetail() {
     const params = useParams();
@@ -22,7 +22,7 @@ export default function GalleryItemDetail() {
 
     return (
         <div>
-            { character.id && <GalleryItem character={character}/> }
+            { character.id && <GalleryItemDetailed character={character}/> }
         </div>
     )
 }

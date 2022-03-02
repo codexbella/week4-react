@@ -13,5 +13,4 @@ test('that GalleryItem component is rendered correctly', () => {
 
     expect(screen.getByTestId('gallery-item-status').textContent).toEqual('Alive');
     expect(screen.getByTestId('gallery-item-species').textContent).toEqual('Human');
-    expect(screen.getByTestId('gallery-item-location-name').textContent).toEqual('Earth (Replacement Dimension)');
 })

@@ -1,7 +1,7 @@
 import GalleryItem from "./GalleryItem/GalleryItem";
 import './Gallery.css';
 import {useEffect, useState} from "react";
-import {Character} from "./characterModel";
+import {Character} from "./GalleryItem/characterModel";
 
 export default function Gallery() {
     interface Pages {
@@ -9,10 +9,6 @@ export default function Gallery() {
         next: string;
         prev: string;
     }
-
-/*    interface ResponseHead {
-        info: Array<Pages>;
-    }*/
 
     const [searchTerm, setSearchTerm] = useState('');
     const [page, setPage] = useState(1);
