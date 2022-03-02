@@ -1,15 +1,15 @@
-#gallery {
+#all-of-it {
+    background-color: #C37B89;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     align-content: space-around;
     gap: 20px 20px;
 }
 #gallery-wrapper {
-    background-color: #C37B89;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     align-content: space-around;
@@ -53,7 +53,6 @@
     flex-wrap: wrap;
     align-content: space-around;
 }
-
 #search-field-buttons-wrapper {
     display: flex;
     justify-content: center;

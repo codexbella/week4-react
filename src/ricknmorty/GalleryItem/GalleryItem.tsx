@@ -1,5 +1,5 @@
 import { JsxElement } from "typescript";
-import { Character } from "./characterModel";
+import { Character } from "../characterModel";
 import './GalleryItem.css';
 
 interface GalleryItemProps {

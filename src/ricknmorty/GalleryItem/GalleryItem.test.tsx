@@ -1,6 +1,6 @@
 import {render, screen} from '@testing-library/react';
 import GalleryItem from "./GalleryItem";
-import summerSmith from "./jsonForTests/SummerSmith.json";
+import summerSmith from "../jsonForTests/SummerSmith.json";
 
 test('that GalleryItem component is rendered correctly', () => {
     render(<GalleryItem character={summerSmith}/>);
