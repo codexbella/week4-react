@@ -1,7 +1,7 @@
 import GalleryItem from "./GalleryItem/GalleryItem";
 import './Gallery.css';
 import {useEffect, useState} from "react";
-import {Character} from "./characterModel";
+import {Character} from "./GalleryItem/characterModel";
 
 export default function Gallery() {
     interface Pages {
@@ -9,10 +9,6 @@ export default function Gallery() {
         next: string;
         prev: string;
     }
-
-/*    interface ResponseHead {
-        info: Array<Pages>;
-    }*/
 
     const [searchTerm, setSearchTerm] = useState('');
     const [page, setPage] = useState(1);
@@ -38,8 +34,7 @@ export default function Gallery() {
         }
         , [page]);
 
-    return <div id='all-of-it'>
-        <div><h1 className='gallery-title'>Rick and Morty Gallery</h1></div>
+    return <div id="all-of-it-wrapper-gallery">
         <div id='search-field-buttons-wrapper'>
             <input type='text' placeholder='Type in search term' value={searchTerm} data-testid='search-field'
                    onChange={typed => setSearchTerm(typed.target.value)} className='search-field'/>
@@ -66,7 +61,7 @@ export default function Gallery() {
                         .map((c, index) => <div data-testid='gallery-item' key={c.id}>
                             <GalleryItem character={c}/></div>)
                     :
-                    <div>List is empty or there was an error.</div>
+                    <div className='list-empty-message'>List is empty or there was an error.</div>
             }
         </div>
     </div>
