@@ -8,18 +8,18 @@ import GalleryItemDetail from "./ricknmorty/GalleryItem/GalleryItemDetail";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 ReactDOM.render(
-  <React.StrictMode>
+   <React.StrictMode>
       <BrowserRouter>
-          <Routes>
-              <Route path='/' element={<App />}>
-                  <Route path='gallery' element={<Gallery />}/>
-                  <Route path='gallery/:characterId' element={<GalleryItemDetail />}/>
-                  <Route path='*' element={<Gallery/>}/>
-              </Route>
-          </Routes>
+         <Routes>
+            <Route path='/' element={<App/>}>
+               <Route path='gallery' element={<Gallery/>}/>
+               <Route path='gallery/:characterId' element={<GalleryItemDetail/>}/>
+               <Route path='*' element={<Gallery/>}/>
+            </Route>
+         </Routes>
       </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
+   </React.StrictMode>,
+   document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

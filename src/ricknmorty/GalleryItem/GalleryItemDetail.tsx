@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import {useEffect, useState} from "react";
-import GalleryItem, {GalleryItemDetailed} from "./GalleryItem";
+import {GalleryItemDetailed} from "./GalleryItem";
 import {Character} from "./characterModel";
 
 export default function GalleryItemDetail() {
